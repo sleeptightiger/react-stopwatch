@@ -18,7 +18,10 @@ class Stopwatch extends Component {
   }
 
   _start(e) {
-    e.preventDefault()
+
+    if(this.stopwatch) {
+      clearInterval(this.stopwatch);
+    }
     this.stopwatch = setInterval(() => {
       this.setState({
         time: this.state.time+1
@@ -28,7 +31,7 @@ class Stopwatch extends Component {
 
 
   _reset(e) {
-    e.preventDefault()
+    
     this.setState({
       time: 0
     })
